@@ -183,7 +183,21 @@ class QueryEngine:
                 print(f"Has stock performance data")
         
         print("\n" + "="*70)
-    
+                           
+    def interactive(self):
+        print("\n===== Bull Analytics Query Engine =====")
+        print("Type 'exit' to quit.\n")
+        
+        while True:
+            q = input("Enter your question: ")
+            if q.lower() in ("exit", "quit"):
+                print("Goodbye!")
+                break
+        
+            result = self.query(q, k=5, method="cosine")
+            self.display_results(result)
+            print("\n")
+        
     def answer_with_citations(self, question: str, k: int = 3) -> str:
         """
         Generate an answer with citations to source chunks.
@@ -303,5 +317,11 @@ def main():
     print(f"{'='*70}")
 
 
+
 if __name__ == "__main__":
-    main()
+    engine = QueryEngine(
+        vector_db_path="vector_database.json",
+        embedder_method="tfidf"
+    )
+    engine.interactive()
+
