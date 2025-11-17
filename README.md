@@ -203,7 +203,7 @@ python vector_storage.py
 #### Usage:
 
 ```python
-from vector_store import VectorDatabase
+from vector_storage import VectorDatabase
 from embedder import Embedder
 
 # Load embeddings
