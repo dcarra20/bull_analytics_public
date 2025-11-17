@@ -125,7 +125,7 @@ python embedder.py
 
 ```python
 from embedder import Embedder
-from chunker import TextChunker
+from chunk_maker import TextChunker
 from data_loader import load_companies, enrich_companies_with_stock_data
 
 # Prepare chunks
